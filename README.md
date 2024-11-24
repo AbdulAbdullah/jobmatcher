@@ -70,7 +70,7 @@ An advanced Django-based web application that processes resumes, extracts skills
      ```json
      {
        "candidate_name": "Gojo Satoru",
-       "email": "gojosatoru@example.com", 
+       "email": "gojosatoru@gmailJujutsuhigh.com", 
        "file": "<PDF File>"
      }
      ```
