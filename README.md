@@ -44,8 +44,8 @@ Ensure you have the following installed:
 
 1. Clone the Repository:
    ```bash
-   git clone https://github.com/your-username/resume-job-matcher.git
-   cd resume-job-matcher
+   git clone https://github.com/AbdulAbdullah/jobmatcher.git
+   cd jobmatcher
 
 
 2. Create and Activate a Virtual Environment:
