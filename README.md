@@ -95,16 +95,16 @@ Ensure you have the following installed:
 
 2. Match Resume with Job
 
-    **Endpoint**: POST /match-job/
-    **Description**: Matches a resume with a job posting and calculates a match score.
-    **Request Body**:
+-   **Endpoint**: POST /match-job/
+-   **Description**: Matches a resume with a job posting and calculates a match score.
+-   **Request Body**:
     ```json
     {
   "resume_id": 1,
   "job_id": 2
     }
     ```
-    **Response**:
+-   **Response**:
     ```json
     {
   "resume": 1,
