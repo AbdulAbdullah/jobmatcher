@@ -20,6 +20,7 @@ An advanced Django-based web application that processes resumes, extracts skills
 - PDF Parsing: PyPDF2
 - Similarity Scoring: Scikit-learn
 - Database: SQLite (default) / PostgreSQL (production)
+- Containerization: Docker
 
 ## Installation
 
@@ -27,6 +28,7 @@ An advanced Django-based web application that processes resumes, extracts skills
 - Python (>= 3.8)
 - pip
 - Virtualenv (optional but recommended)
+- Docker and Docker Compose (for containerized setup)
 
 ### Steps
 
@@ -58,6 +60,24 @@ An advanced Django-based web application that processes resumes, extracts skills
    ```
 
 6. Access the API at: `http://127.0.0.1:8000/`
+
+### Running with Docker
+
+If you prefer to run the application using Docker, follow these steps:
+
+1. Make sure you have Docker and Docker Compose installed on your system.
+
+2. Build and run the Docker containers:
+   ```bash
+   docker-compose up --build
+   ```
+
+3. The application will be available at `http://localhost:8000/`
+
+4. To stop the containers, use:
+   ```bash
+   docker-compose down
+   ```
 
 ## Usage
 
