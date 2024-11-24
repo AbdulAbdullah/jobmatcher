@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Resume, JobPosting, Match
 
-# Register your models here.
+admin.site.register(Resume)
+admin.site.register(JobPosting)
+admin.site.register(Match)

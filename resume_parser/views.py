@@ -10,11 +10,7 @@ class ResumeUploadView(APIView):
     parser_classes = [MultiPartParser, FormParser]
 
     def post(self, request):
-        print(request.data) 
-        print("Files:", request.FILES)
-        print("Headers:", request.headers)
         serializer = ResumeSerializer(data={'file': request.FILES.get('file')})
-
         if serializer.is_valid():
             try:
                 resume = serializer.save()
@@ -26,8 +22,6 @@ class ResumeUploadView(APIView):
                 }, status=status.HTTP_201_CREATED)
             except Exception as e:
                 return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-        
-        print("Serializer Errors:", serializer.errors)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class JobPostingView(APIView):
@@ -37,7 +31,6 @@ class JobPostingView(APIView):
             job_posting = serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 class JobPostingListView(APIView):
     def get(self, request):
@@ -55,20 +48,18 @@ class JobMatchView(APIView):
 
         try:
             resume = Resume.objects.get(id=resume_id)
+            job = JobPosting.objects.get(id=job_id)
         except Resume.DoesNotExist:
             return Response({"error": "Resume not found"}, status=status.HTTP_404_NOT_FOUND)
-
-        try:
-            job = JobPosting.objects.get(id=job_id)
         except JobPosting.DoesNotExist:
             return Response({"error": "Job posting not found"}, status=status.HTTP_404_NOT_FOUND)
 
         try:
             match_score = calculate_match_score(resume, job)
-            match, created = Match.objects.get_or_create(resume=resume, job_posting=job, defaults={"match_score": match_score})
-            if not created:
-                match.match_score = match_score  # Update match score if already exists
-                match.save()
+            match, created = Match.objects.update_or_create(
+                resume=resume, job_posting=job,
+                defaults={"match_score": match_score}
+            )
             serializer = MatchSerializer(match)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         except Exception as e:
