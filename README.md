@@ -92,24 +92,23 @@ Ensure you have the following installed:
   "skills": ["Python", "Django", "Machine Learning", "Demon Hunting", "Domain Expansion", "Limitless"]
     }
   ```    
-
 2. Match Resume with Job
 
--   **Endpoint**: POST /match-job/
--   **Description**: Matches a resume with a job posting and calculates a match score.
--   **Request Body**:
-    ```json
-    {
-  "resume_id": 1,
-  "job_id": 2
-    }
-    ```
--   **Response**:
-    ```json
-    {
-  "resume": 1,
-  "job_posting": 2,
-  "match_score": 85.34
-    }
-    ```
-
+- **Endpoint**: POST /match-job/
+- **Description**: Matches a resume with a job posting and calculates a match score.
+- **Request Body**:
+  ```json
+  {
+    "resume_id": 1,
+    "job_id": 2
+  }
+  ```
+- **Response**:
+  ```json
+  {
+    "id": 1,
+    "resume": 1,
+    "job_posting": 2, 
+    "match_score": 85.34
+  }
+  ```
