@@ -77,7 +77,7 @@ An advanced Django-based web application that processes resumes, extracts skills
    - **Response**:
      ```json
      {
-       "message": "Resume uploaded successfully",
+       "message": "Resu-me upuroaded successfurry desu!",
        "skills": ["Python", "Django", "Machine Learning", "Demon Hunting", "Domain Expansion", "Limitless"]
      }
      ```

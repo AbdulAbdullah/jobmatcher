@@ -17,7 +17,7 @@ class ResumeUploadView(APIView):
                 extracted_text = extract_text_from_resume(resume.file)
                 skills = extract_skills(extracted_text)
                 return Response({
-                    "message": "Resume uploaded successfully",
+                    "message": "Resu-me upuroaded successfurry desu!",
                     "skills": list(skills)
                 }, status=status.HTTP_201_CREATED)
             except Exception as e:
