@@ -112,3 +112,19 @@ Ensure you have the following installed:
     "match_score": 85.34
   }
   ```
+
+## Key Components
+
+### Models
+- **Resume**: Stores candidate details and uploaded resume file.
+- **JobPosting**: Represents job postings with descriptions and required skills.
+- **Match**: Tracks resume-job matches and their calculated match scores.
+
+### Services
+- **extract_text_from_resume(pdf_file)**: Extracts text content from a PDF resume.
+- **extract_skills(text)**: Extracts relevant skills using spaCy NLP.
+- **calculate_match_score(resume, job)**: Computes a similarity score using cosine similarity.
+
+### Views
+- **ResumeUploadView**: Handles resume uploads and skill extraction.
+- **JobMatchView**: Matches resumes with job postings and calculates match percentages.
